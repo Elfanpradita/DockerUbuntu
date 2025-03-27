@@ -58,3 +58,29 @@ docker run hello-world
 ```
 Jika ada output sukses dari Docker, berarti instalasi sudah berhasil. 🚀
 
+# Cara Memperbaiki Container agar Otomatis Berjalan Setelah Restart
+
+Jika container Docker tidak otomatis berjalan setelah mati lampu atau restart server, ikuti langkah-langkah berikut untuk memperbaikinya.
+
+---
+
+## **1️⃣ Perbaiki Restart Policy**
+
+Gunakan perintah berikut untuk mengubah **restart policy** menjadi `always` agar container selalu berjalan setelah server restart:
+
+```bash
+docker update --restart always esgul-web-1
+```
+
+Setelah itu, cek kembali apakah restart policy sudah berubah:
+
+```bash
+docker inspect -f '{{ .HostConfig.RestartPolicy.Name }}' esgul-web-1
+```
+
+Jika hasilnya `always`, berarti sudah berhasil.
+
+🚀 Semoga bermanfaat!
+
+
+
